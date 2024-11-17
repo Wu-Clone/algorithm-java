@@ -71,6 +71,19 @@ length
 
 
 
+###### 集合的常见使用代码
+
+```java
+Set<Integer> s = new HashSet<>();
+s.add(1);
+if(s.contains(1)) 
+    System.out.println("存在");
+```
+
+
+
+
+
 ### 具体题目
 
 ###### p69 溢出问题
