@@ -82,6 +82,10 @@ if(s.contains(1))
 
 
 
+###### HashMap的使用代码
+
+HashMapExample.java 中
+
 
 
 ### 具体题目
