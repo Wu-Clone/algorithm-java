@@ -20,5 +20,4 @@ public class p9 {
         }
         return true;
     }
-
 }
