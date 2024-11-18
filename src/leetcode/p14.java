@@ -24,4 +24,15 @@ public class p14 {
         }
         return sb.toString();
     }
+    public String longestCommonPrefix01(String[] strs) {
+        String pubSubStr = strs[0];
+        for(int i =1; i<strs.length;i++){
+            while(!strs[i].startsWith(pubSubStr)){
+                if(pubSubStr.length()==0) return "";
+                pubSubStr =  pubSubStr.substring(0, pubSubStr.length() -1);
+            }
+
+        }
+        return pubSubStr;
+    }
 }
