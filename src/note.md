@@ -4,6 +4,12 @@
 
 
 
+###### ASCII
+
+字母小写 **`a`** 的十进制值是 **97**。
+
+字母大写 **`A`** 的十进制值是 **65**。
+
 ###### 数组长度 length
 
 ```java
@@ -98,6 +104,55 @@ if (n == Integer.MIN_VALUE)
             return myPow(x, Integer.MIN_VALUE + 1) / x;
 ```
 
+**数组一定要考虑极端情况 空 [1]**
+
+
+
+
+
+
+
+###### 字符串的操作
+
+**去除多余符号**
+
+```java
+String a = "asd  ";
+System.out.println(a.trim());
+```
+
+**转化为字符数组**
+
+```java
+char[] chs = a.toCharArray();
+System.out.println(Arrays.toString(chs));
+```
+
+**startsWith** **substring**
+
+```java
+strs[i].startsWith(pubSubStr);
+pubSubStr.substring(0, pubSubStr.length() -1);
+```
+
+indexOf
+
+```java
+String text = "hello world";
+String pattern = "world";
+
+int index = text.indexOf(pattern);
+if (index != -1) {
+    System.out.println("Pattern found at index: " + index);
+} else {
+    System.out.println("Pattern not found");
+}
+```
+
+
+
+
+
 
 
 ### 具体题目
@@ -120,6 +175,53 @@ if (n == Integer.MIN_VALUE)
 
 
 
+###### p6 z形变化
+
+```java
+class Solution {
+    public String convert(String s, int numRows) {
+        if (numRows == 1)
+            return s;
+        StringBuilder res = new StringBuilder();
+        // ----- 创建对象数组 错
+        StringBuilder[] sbs = new StringBuilder[numRows];
+
+        // ----- 初始化每个元素----- 错
+        for (int i = 0; i < numRows; i++) {
+            sbs[i] = new StringBuilder();
+        }
+        boolean down = true;
+        int index = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (down) {
+                sbs[index].append(s.charAt(i));
+                index++;
+                if (index == numRows) {
+                    index -= 2;
+                    // 取反 错
+                    down = !down;
+                }
+            } else {
+                sbs[index].append(s.charAt(i));
+                index--;
+                if (index < 0) {
+                    index = 1;
+                    down = !down;
+                }
+            }
+        }
+        for (StringBuilder sb : sbs) {
+            res.append(sb);
+        }
+        return res.toString();
+    }
+}
+```
+
+
+
+
+
 ###### 移位运算
 
 **左移**
@@ -132,3 +234,9 @@ if (n == Integer.MIN_VALUE)
 
 - **逻辑右移 (`>>>`)：** 用 0 填充高位，适用于无符号数。
 - **算术右移 (`>>`)：** 保持符号位，用符号位填充高位。
+
+
+
+
+
+###### 头疼题目 p26
