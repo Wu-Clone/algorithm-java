@@ -237,6 +237,36 @@ class Solution {
 
 
 
+###### p53 attention代码 最大子数组和
+
+```java
+public static int maxSubArray(int[] nums) {
+        int res = nums[0];
+        int current_sum = nums[0];
+        for(int i =1;i<nums.length;i++){
+            current_sum= Math.max(nums[i], current_sum+nums[i]);
+            res = Math.max(res, current_sum);
+        }
+        return res;
+    }
+```
+
+
+
 
 
 ###### 头疼题目 p26
+
+###### 要做的题
+
+[169. 多数元素](https://leetcode.cn/problems/majority-element/)
+
+[3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/)
+
+[55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
+
+
+
+区间 栈 链表
+
+哈希 kadane 堆
