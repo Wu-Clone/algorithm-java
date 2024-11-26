@@ -18,4 +18,16 @@ public class p98 {
 //        ls.add(node.val);
 //        inOrder(node.right, ls);
 //    }
+
+//    public boolean isValidBST(TreeNode root) {
+//        return checker(root, Long.MIN_VALUE, Long.MAX_VALUE);
+//    }
+//
+//    private boolean checker(TreeNode node, long min, long max) {
+//        if (node == null)
+//            return true;
+//        if (node.val <= min || node.val >= max)
+//            return false;
+//        return checker(node.left, min, node.val) && checker(node.right, node.val, max);
+//    }
 }
