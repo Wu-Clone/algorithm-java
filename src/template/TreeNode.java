@@ -2,7 +2,7 @@ package template;
 
 public class TreeNode {
     int val;
-    TreeNodeX left, right;
+    TreeNode left, right;
 
     // 构造函数
     TreeNode(int val) {
