@@ -30,6 +30,17 @@ public class p26 {
                 nums[k++] = nums[j++];
         }
         return k;
+    }
 
+    public static int removeDuplicates01(int[] nums) {
+        int l = 0, r =0;
+        while(r<nums.length){
+            if(l==r || nums[l] == nums[r]) r++;
+            else{
+                l++;
+                nums[l] = nums[r];
+            }
+        }
+        return l+1;
     }
 }
