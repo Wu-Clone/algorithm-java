@@ -16,7 +16,7 @@ public class p128 {
                 consecutive++;
                 next++;
             }
-            res = Math.max(res, next);
+            res = Math.max(res, consecutive);
         }
         return res;
     }
