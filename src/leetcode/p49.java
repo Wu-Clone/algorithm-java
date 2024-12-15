@@ -44,4 +44,21 @@ public class p49 {
         }
         return sb.toString();
     }
+
+    public List<List<String>> groupAnagrams01(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+        for(int i = 0; i< strs.length;i++){
+            char[] chs = strs[i].toCharArray();
+            Arrays.sort(chs);
+            String sorted = new String(chs);
+            if(map.containsKey(sorted)){
+                map.get(sorted).add(strs[i]);
+            }else{
+                List<String> ls = new ArrayList<>();
+                ls.add(strs[i]);
+                map.put(sorted,ls);
+            }
+        }
+        return new ArrayList<List<String>>(map.values());
+    }
 }
