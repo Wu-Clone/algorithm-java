@@ -6,23 +6,18 @@ import java.util.Set;
 public class p128 {
     public int longestConsecutive(int[] nums) {
         Set<Integer> set = new HashSet<>();
-        int consecutive=0;
-        int ans=0;
         for(int i:nums) set.add(i);
-
-        for(Integer i: set){
-            if(set.contains(i-1)){
-                consecutive=0;
-                continue;
+        int res = 0;
+        for(int num:set){
+            if(set.contains(num-1)) continue;
+            int consecutive = 1;
+            int next = num+1;
+            while(set.contains(next)){
+                consecutive++;
+                next++;
             }
-            else{
-                while(set.contains(i++)){
-                    consecutive++;
-                }
-                ans= Math.max(ans,consecutive);
-                consecutive =0;
-            }
+            res = Math.max(res, next);
         }
-        return ans;
+        return res;
     }
 }
