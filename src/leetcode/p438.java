@@ -23,4 +23,28 @@ public class p438 {
         }
         return res;
     }
+    public List<Integer> findAnagrams01(String s, String p) {
+        List<Integer> res = new ArrayList<>();
+        int[] cntP = new int[26];
+        int[] windowFreq = new int[26];
+        char[] pChs = p.toCharArray();
+        for (char c : pChs)
+            cntP[c - 'a']++;
+        int r = 0, l = 0;
+        char[] sChs = s.toCharArray();
+        while (r < sChs.length) {
+            char chRight = sChs[r];
+            windowFreq[chRight - 'a']++;
+            r++;
+            if (r - l == pChs.length) {
+                if (Arrays.equals(windowFreq, cntP))
+                    res.add(l);
+                char chLeft = sChs[l];
+                windowFreq[chLeft - 'a']--;
+                l++;
+            }
+
+        }
+        return res;
+    }
 }
