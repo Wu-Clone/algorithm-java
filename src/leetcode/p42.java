@@ -6,22 +6,22 @@ public class p42 {
         System.out.println(res);
     }
     public static int trap(int[] height) {
-//        int slow = 0, fast = 0;
-//        int res = 0;
-//        int sum = 0;
-//        while (fast < height.length) {
-//            if (fast == height.length-1 || height[fast] >= height[slow] || (height[fast] > height[fast + 1])) {
-//                int rain = Math.min(height[fast], height[slow]) * (fast - slow - 1) - sum;
-//                res += Math.max(rain, 0);
-//                sum = 0;
-//                slow = fast;
-//            }
-//            else if (height[slow] > height[fast]) {
-//                sum += height[fast];
-//            }
-//            fast++;
-//        }
-        return 0;
+        int l = 0, r = height.length - 1;
+        int lMax = height[0], rMax = height[height.length - 1];
+        int res = 0;
+        while (l <= r) {
+            int mid = Math.min(lMax, rMax);
+            if (lMax > rMax) {
+                res += (mid - height[r]) > 0 ? (mid - height[r]) : 0;
+                rMax = Math.max(height[r], rMax);
+                r--;
+            } else {
+                res += (mid - height[l]) > 0 ? (mid - height[l]) : 0;
+                lMax = Math.max(height[l], lMax);
+                l++;
+            }
+        }
+        return res;
     }
 
     public int trap0(int[] height) {
